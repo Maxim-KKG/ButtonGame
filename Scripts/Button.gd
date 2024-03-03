@@ -1,12 +1,12 @@
 extends Area2D
 
+@export var isBlue = false
 var isOn = false
 var count = 0.0
 var stop = false
 var timer = 0
-@export var isBlue = false
-const explosion = preload("res://Explosion.tscn")
-const click = preload("res://Click.tscn")
+const explosion = preload("res://Scenes/Explosion.tscn")
+const click = preload("res://Scenes/Click.tscn")
 
 func _on_mouse_entered():
 	isOn = true
@@ -29,7 +29,7 @@ func _process(delta):
 			count = 0
 			$Sprite.frame = 2
 			$Label.text = str(count)
-			get_parent().get_node("Text").stop()
+			get_tree().call_group("Manager","stop")
 
 func spawn():
 	var e = explosion.instantiate()

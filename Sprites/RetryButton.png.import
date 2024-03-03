@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwqyaeu7nmenc"
-path="res://.godot/imported/RetryButton.png-71f7f099a9e54b2a0594efa5e486e9b4.ctex"
+path="res://.godot/imported/RetryButton.png-2f7226ad6063bae2f9f2bb9eac370799.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RetryButton.png"
-dest_files=["res://.godot/imported/RetryButton.png-71f7f099a9e54b2a0594efa5e486e9b4.ctex"]
+source_file="res://Sprites/RetryButton.png"
+dest_files=["res://.godot/imported/RetryButton.png-2f7226ad6063bae2f9f2bb9eac370799.ctex"]
 
 [params]
 

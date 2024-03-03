@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="ButtonGame"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.854902, 0.878431, 0.917647, 1)
 boot_splash/show_image=false
-config/icon="res://Icon.png"
+config/icon="res://Sprites/Icon.png"
 config/windows_native_icon="res://icon-export.ico"
 boot_splash/minimum_display_time=1
+
+[autoload]
+
+Singletons="*res://Scripts/Singletons.gd"
 
 [display]
 

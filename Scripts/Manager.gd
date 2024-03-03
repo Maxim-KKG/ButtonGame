@@ -2,7 +2,7 @@ extends Node2D
 
 var timer = 2
 var done = false
-const death = preload("res://Death.tscn")
+const death = preload("res://Scenes/Death.tscn")
 
 func _process(delta):
 	if !done:

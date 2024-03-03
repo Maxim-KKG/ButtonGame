@@ -3,7 +3,7 @@ extends Camera2D
 var timer = 1
 
 func _process(delta):
-	if !get_parent().get_node("Text").done:
+	if !get_parent().get_node("Manager").done:
 		return
 	timer -= delta
 	if timer < 0:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdoyya3swbk6s"]
 
-[ext_resource type="AudioStream" uid="uid://bcd7f2o2prpni" path="res://death.wav" id="1_adw4j"]
+[ext_resource type="AudioStream" uid="uid://bcd7f2o2prpni" path="res://Sounds/death.wav" id="1_adw4j"]
 
 [node name="Death" type="AudioStreamPlayer"]
 stream = ExtResource("1_adw4j")

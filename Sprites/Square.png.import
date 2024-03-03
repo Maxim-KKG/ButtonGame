@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6hi1la3wvpv0"
-path="res://.godot/imported/Square.png-20845e3cce0097abed0dd399b5ed48a3.ctex"
+path="res://.godot/imported/Square.png-33cfe40d20ee8f261eff678aec0ba65b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Square.png"
-dest_files=["res://.godot/imported/Square.png-20845e3cce0097abed0dd399b5ed48a3.ctex"]
+source_file="res://Sprites/Square.png"
+dest_files=["res://.godot/imported/Square.png-33cfe40d20ee8f261eff678aec0ba65b.ctex"]
 
 [params]
 

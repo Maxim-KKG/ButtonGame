@@ -10,4 +10,4 @@ func _on_mouse_exited():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("action") and isOn:
-		get_parent().get_node("Text").stop()
+		get_tree().call_group("Manager","stop")

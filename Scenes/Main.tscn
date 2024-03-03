@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=3 uid="uid://cfcvjrlry0gjm"]
 
-[ext_resource type="Script" path="res://Button.gd" id="1_0omdt"]
-[ext_resource type="Texture2D" uid="uid://c3sc71mr14wms" path="res://BlueButton.png" id="2_2ybuy"]
-[ext_resource type="FontFile" uid="uid://byn5c4dr3o1vq" path="res://Pixellari.ttf" id="3_6baq6"]
-[ext_resource type="Texture2D" uid="uid://cmdnkxxotcjho" path="res://RedButton.png" id="4_un02q"]
-[ext_resource type="Script" path="res://Text.gd" id="5_vl6vn"]
-[ext_resource type="Script" path="res://Retry.gd" id="6_qov2k"]
-[ext_resource type="Texture2D" uid="uid://bwqyaeu7nmenc" path="res://RetryButton.png" id="7_y6efr"]
-[ext_resource type="Script" path="res://Camera.gd" id="8_xwhnw"]
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="1_2jyn5"]
+[ext_resource type="Texture2D" uid="uid://c3sc71mr14wms" path="res://Sprites/BlueButton.png" id="2_2s8nr"]
+[ext_resource type="FontFile" uid="uid://byn5c4dr3o1vq" path="res://Fonts/Pixellari.ttf" id="3_7nnmb"]
+[ext_resource type="Texture2D" uid="uid://cmdnkxxotcjho" path="res://Sprites/RedButton.png" id="4_xeotq"]
+[ext_resource type="Script" path="res://Scripts/Manager.gd" id="5_nrpph"]
+[ext_resource type="Script" path="res://Scripts/Retry.gd" id="6_jt16g"]
+[ext_resource type="Texture2D" uid="uid://bwqyaeu7nmenc" path="res://Sprites/RetryButton.png" id="7_836ah"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="8_nlhxq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hodvp"]
 radius = 33.0151
 
 [sub_resource type="Theme" id="Theme_5iu65"]
-default_font = ExtResource("3_6baq6")
+default_font = ExtResource("3_7nnmb")
 
 [sub_resource type="Animation" id="Animation_wk7bj"]
 resource_name = "Press"
@@ -138,7 +138,7 @@ _data = {
 }
 
 [sub_resource type="Theme" id="Theme_21too"]
-default_font = ExtResource("3_6baq6")
+default_font = ExtResource("3_7nnmb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smm4s"]
 size = Vector2(64, 16)
@@ -147,11 +147,11 @@ size = Vector2(64, 16)
 
 [node name="BlueButton" type="Area2D" parent="."]
 position = Vector2(253, 88)
-script = ExtResource("1_0omdt")
+script = ExtResource("1_2jyn5")
 isBlue = true
 
 [node name="Sprite" type="Sprite2D" parent="BlueButton"]
-texture = ExtResource("2_2ybuy")
+texture = ExtResource("2_2s8nr")
 hframes = 3
 
 [node name="Collision" type="CollisionShape2D" parent="BlueButton"]
@@ -173,10 +173,10 @@ libraries = {
 
 [node name="RedButton" type="Area2D" parent="."]
 position = Vector2(64, 88)
-script = ExtResource("1_0omdt")
+script = ExtResource("1_2jyn5")
 
 [node name="Sprite" type="Sprite2D" parent="RedButton"]
-texture = ExtResource("4_un02q")
+texture = ExtResource("4_xeotq")
 hframes = 3
 
 [node name="Collision" type="CollisionShape2D" parent="RedButton"]
@@ -197,10 +197,10 @@ libraries = {
 "": SubResource("AnimationLibrary_sxexu")
 }
 
-[node name="Text" type="Node2D" parent="."]
-script = ExtResource("5_vl6vn")
+[node name="Manager" type="Node2D" parent="." groups=["Manager"]]
+script = ExtResource("5_nrpph")
 
-[node name="P1" type="Label" parent="Text"]
+[node name="P1" type="Label" parent="Manager"]
 visible = false
 offset_left = 123.0
 offset_top = 80.0
@@ -211,7 +211,7 @@ theme_override_colors/font_color = Color(0.705882, 0.12549, 0.164706, 1)
 text = "RED WINS"
 horizontal_alignment = 1
 
-[node name="P2" type="Label" parent="Text"]
+[node name="P2" type="Label" parent="Manager"]
 visible = false
 offset_left = 119.0
 offset_top = 80.0
@@ -222,7 +222,7 @@ theme_override_colors/font_color = Color(0.156863, 0.360784, 0.768627, 1)
 text = "BLUE WINS"
 horizontal_alignment = 1
 
-[node name="P3" type="Label" parent="Text"]
+[node name="P3" type="Label" parent="Manager"]
 visible = false
 offset_left = 119.0
 offset_top = 80.0
@@ -235,10 +235,10 @@ horizontal_alignment = 1
 
 [node name="Retry" type="Area2D" parent="."]
 position = Vector2(159, 153)
-script = ExtResource("6_qov2k")
+script = ExtResource("6_jt16g")
 
 [node name="Sprite" type="Sprite2D" parent="Retry"]
-texture = ExtResource("7_y6efr")
+texture = ExtResource("7_836ah")
 
 [node name="Collision" type="CollisionShape2D" parent="Retry"]
 shape = SubResource("RectangleShape2D_smm4s")
@@ -255,7 +255,7 @@ horizontal_alignment = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
-script = ExtResource("8_xwhnw")
+script = ExtResource("8_nlhxq")
 
 [connection signal="mouse_entered" from="BlueButton" to="BlueButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BlueButton" to="BlueButton" method="_on_mouse_exited"]
