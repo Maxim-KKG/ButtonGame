@@ -1,0 +1,265 @@
+[gd_scene load_steps=19 format=3 uid="uid://cfcvjrlry0gjm"]
+
+[ext_resource type="Script" path="res://Button.gd" id="1_0omdt"]
+[ext_resource type="Texture2D" uid="uid://c3sc71mr14wms" path="res://BlueButton.png" id="2_2ybuy"]
+[ext_resource type="FontFile" uid="uid://byn5c4dr3o1vq" path="res://Pixellari.ttf" id="3_6baq6"]
+[ext_resource type="Texture2D" uid="uid://cmdnkxxotcjho" path="res://RedButton.png" id="4_un02q"]
+[ext_resource type="Script" path="res://Text.gd" id="5_vl6vn"]
+[ext_resource type="Script" path="res://Retry.gd" id="6_qov2k"]
+[ext_resource type="Texture2D" uid="uid://bwqyaeu7nmenc" path="res://RetryButton.png" id="7_y6efr"]
+[ext_resource type="Script" path="res://Camera.gd" id="8_xwhnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hodvp"]
+radius = 33.0151
+
+[sub_resource type="Theme" id="Theme_5iu65"]
+default_font = ExtResource("3_6baq6")
+
+[sub_resource type="Animation" id="Animation_wk7bj"]
+resource_name = "Press"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-24, -8), Vector2(-24, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_3n3yg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-24, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qw46"]
+_data = {
+"Press": SubResource("Animation_wk7bj"),
+"RESET": SubResource("Animation_3n3yg")
+}
+
+[sub_resource type="Animation" id="Animation_as7em"]
+resource_name = "Press"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RedButton/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RedButton/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-24, -8), Vector2(-24, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_qoq4d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RedButton/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RedButton/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-24, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sxexu"]
+_data = {
+"Press": SubResource("Animation_as7em"),
+"RESET": SubResource("Animation_qoq4d")
+}
+
+[sub_resource type="Theme" id="Theme_21too"]
+default_font = ExtResource("3_6baq6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smm4s"]
+size = Vector2(64, 16)
+
+[node name="Main" type="Node2D"]
+
+[node name="BlueButton" type="Area2D" parent="."]
+position = Vector2(253, 88)
+script = ExtResource("1_0omdt")
+isBlue = true
+
+[node name="Sprite" type="Sprite2D" parent="BlueButton"]
+texture = ExtResource("2_2ybuy")
+hframes = 3
+
+[node name="Collision" type="CollisionShape2D" parent="BlueButton"]
+shape = SubResource("CircleShape2D_hodvp")
+
+[node name="Label" type="Label" parent="BlueButton"]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 24.0
+offset_bottom = 13.0
+theme = SubResource("Theme_5iu65")
+text = "0"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlueButton"]
+libraries = {
+"": SubResource("AnimationLibrary_0qw46")
+}
+
+[node name="RedButton" type="Area2D" parent="."]
+position = Vector2(64, 88)
+script = ExtResource("1_0omdt")
+
+[node name="Sprite" type="Sprite2D" parent="RedButton"]
+texture = ExtResource("4_un02q")
+hframes = 3
+
+[node name="Collision" type="CollisionShape2D" parent="RedButton"]
+shape = SubResource("CircleShape2D_hodvp")
+
+[node name="Label" type="Label" parent="RedButton"]
+offset_left = -24.0
+offset_top = -10.0
+offset_right = 24.0
+offset_bottom = 13.0
+theme = SubResource("Theme_5iu65")
+text = "0"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RedButton"]
+root_node = NodePath("../../BlueButton")
+libraries = {
+"": SubResource("AnimationLibrary_sxexu")
+}
+
+[node name="Text" type="Node2D" parent="."]
+script = ExtResource("5_vl6vn")
+
+[node name="P1" type="Label" parent="Text"]
+visible = false
+offset_left = 123.0
+offset_top = 80.0
+offset_right = 197.0
+offset_bottom = 103.0
+theme = SubResource("Theme_21too")
+theme_override_colors/font_color = Color(0.705882, 0.12549, 0.164706, 1)
+text = "RED WINS"
+horizontal_alignment = 1
+
+[node name="P2" type="Label" parent="Text"]
+visible = false
+offset_left = 119.0
+offset_top = 80.0
+offset_right = 201.0
+offset_bottom = 103.0
+theme = SubResource("Theme_21too")
+theme_override_colors/font_color = Color(0.156863, 0.360784, 0.768627, 1)
+text = "BLUE WINS"
+horizontal_alignment = 1
+
+[node name="P3" type="Label" parent="Text"]
+visible = false
+offset_left = 119.0
+offset_top = 80.0
+offset_right = 201.0
+offset_bottom = 103.0
+theme = SubResource("Theme_21too")
+theme_override_colors/font_color = Color(0.545098, 0.576471, 0.686275, 1)
+text = "TIE"
+horizontal_alignment = 1
+
+[node name="Retry" type="Area2D" parent="."]
+position = Vector2(159, 153)
+script = ExtResource("6_qov2k")
+
+[node name="Sprite" type="Sprite2D" parent="Retry"]
+texture = ExtResource("7_y6efr")
+
+[node name="Collision" type="CollisionShape2D" parent="Retry"]
+shape = SubResource("RectangleShape2D_smm4s")
+
+[node name="Label" type="Label" parent="Retry"]
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 8.0
+theme = SubResource("Theme_5iu65")
+theme_override_colors/font_color = Color(0.545098, 0.576471, 0.686275, 1)
+text = "Stop"
+horizontal_alignment = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("8_xwhnw")
+
+[connection signal="mouse_entered" from="BlueButton" to="BlueButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BlueButton" to="BlueButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="RedButton" to="RedButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="RedButton" to="RedButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Retry" to="Retry" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Retry" to="Retry" method="_on_mouse_exited"]

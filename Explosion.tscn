@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkcdijflpdfd6"]
+
+[ext_resource type="Texture2D" uid="uid://b6hi1la3wvpv0" path="res://Square.png" id="1_p02s7"]
+
+[sub_resource type="Curve" id="Curve_wdoy2"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -172.528), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w8ruh"]
+curve = SubResource("Curve_wdoy2")
+
+[sub_resource type="Curve" id="Curve_8t0vg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kri4g"]
+curve = SubResource("Curve_8t0vg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ubgp"]
+particle_flag_disable_z = true
+angle_max = 720.0
+angle_curve = SubResource("CurveTexture_w8ruh")
+spread = 180.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+scale_curve = SubResource("CurveTexture_kri4g")
+
+[node name="Explosion" type="GPUParticles2D"]
+z_index = -1
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_4ubgp")
+texture = ExtResource("1_p02s7")
+one_shot = true
+explosiveness = 1.0
